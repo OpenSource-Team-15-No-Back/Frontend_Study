@@ -215,6 +215,9 @@ console.log(isAdult) //확인을 누를 시 console창에는 true가 출력, 취
 2. 스타일링 x (위치와 모양을 정할 수 없음) <br>
 
 * ###  #4 - 형변환 <br>
+**String()** - `문자형`으로 변환
+**Number()** - `숫자형`으로 변환
+**Boolean()** - `불린형`으로 변
 
 ### Javascript For Intermediate
 
