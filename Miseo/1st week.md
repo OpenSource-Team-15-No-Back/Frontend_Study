@@ -74,7 +74,6 @@ const name2 = 'Mike'
 const name3 = `Mike`
 ``` 
 위와 같이 ' '," ",\` `모두 가능 <br>
-<br>
 
 ```javascript
 const message = "I'm a boy.";
