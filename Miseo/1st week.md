@@ -303,7 +303,7 @@ Boolean() -> `불린형`으로 변환 <br>
 짝수 : Y % 2 = 0 <br>
 <br>
 어떤 값이 들어와도 5를 넘기면 안돼<br>
--> X % 5 = 0 ~ 4 사이의 값만 반환
+-> X % 5 = 0 ~ 4 사이의 값만 반환 <br>
 
 연산자의 우선순위 <br>
  `* / > + -` <br>
@@ -408,7 +408,83 @@ if(age > 19){
 }
 ```
 <br>
+
 * ###  #7 - 논리 연산자 (AND, OR, NOT) <br>
+논리 연산자 <br>
++ || (OR) - 여러개 중 하나라도 true면 true, 즉, 모든값이 false 일때만 false 반환
++ && (AND) - 모든값이 true면 true, 즉, 하나라도 false면 false 반환
++ ! (NOT) - true면 false반환, false면 true반환<br>
+<br>
+
+평가 <br>
+- OR는 첫번째 true를 발견하는 즉시 평가를 멈춤 <br>
+>    스티브 잡스는 `남자`이거나OR, 한국인 이거나, 군인이거나... // 남자에서 이미 true이기에 뒤에 설명을 읽지 않음
+- AND는 첫번째 false를 발견하는 즉시 평가를 멈춤 <br>
+> 스티브 잡스는 `남자`이고AND, `한국인`이며, 군인인 동시에..// 한국인에서 이미 false이기에 뒤에 설명을 읽지 않음 <br>
+
+실제코드에서도 어떤 순서로 평가를 배치 하는 지를 고려 하면 좋다 <br>
+예) `운전면허`가 있고 `시력`이 좋은 `여군` <br>
+운전면허 - 전체 군인의 80% <br>
+시력이 좋음 - 전체 군인의 60% <br>
+여군 - 전체 군인의 7% <br>
+-> `여군`인데 `시력`이 좋고 `운전면허`가 있는 사람 // 첫번째 평가에서 93%를 걸러낼 수 있어 시간을 눈에 띄게 줄일 수 있음<br>
+<br>
+```javascript
+a || b //a나 b중 true가 있으면 true
+a && b //a와 b둘 다 true 이면 true
+!a //a가 false 이면 true
+```
+
+```javascript
+// OR
+// 이름이 TOM 이거나, 성인이면 통과
+
+const name = "Mike";
+const age = 30;
+
+if(name === 'Tom' || age > 19){
+    console.log('통과');
+}
+
+// AND
+// 이름이 Mike 이고, 성인이면 통과
+
+const name = "Mike";
+const age = 30;
+
+if(name === 'Mike' && age > 19){
+    console.log('통과');
+} else{
+    console.log('돌아가.');
+}
+
+// NOT
+// 나이를 입력받아 성인 아니면 돌아가라고..
+
+const age = prompt('나이가..?');
+const isAge = age > 19;
+
+if(!isAge){
+    console.log('돌아가..');
+}
+
+// 우선순위
+// 남자이고, 이름이 Mike 이거나 성인이면 통과
+
+const gender = 'F';
+const name = 'Jane';
+const isAdult = true;
+
+// AND연산자가 먼저 OR연산자가 나중
+if(gender === 'M' && name === 'Mike' || isAdult){
+    console.log('통과')
+} else{
+    console.log('돌아가.')
+}
+```
+<br>
+
+* ###  #8 - 반복문(for, while, do while) <br>
 
 ### Javascript For Intermediate
 
