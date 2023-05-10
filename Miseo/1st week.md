@@ -291,6 +291,53 @@ Boolean() -> `불린형`으로 변환 <br>
 + Boolean(' ') //true <br><br>
 
 * ###  #5 - 기본 연산자 <br>
+    * \+ // 더하기
+    * \- // 빼기
+    * \* // 곱하기   
+    * / // 나누기
+    * % // 나머지 
+    * ** // 거듭제곱 <br>
+<br>
+나머지를 어디에 쓸까(%) <br>
+홀수 : X % 2 = 1 <br>
+짝수 : Y % 2 = 0 <br>
+<br>
+어떤 값이 들어와도 5를 넘기면 안돼<br>
+-> X % 5 = 0 ~ 4 사이의 값만 반환
+
+연산자의 우선순위 <br>
+ `* / > + -` <br>
+<br>
+연산자 줄여서 쓰기<br>
+```javascript
+let num = 10;
+num += 5; //num = num + 5;
+num *= 5; //num = num * 5;
+num -= 5; //num = num - 5;
+num %= 5; //num = num % 5;
+```
+<br>
+증가 연산자, 감소 연산자<br>
+
+```javascript
+let num = 10;
+num ++ //증가 연산자
+num -- //감소 연산자
+
+console.log(num);
+```
+`증가 연산자 ++`<br>
+`감소 연산자 --`
+```javascript
+let num = 10;
+//let result = num++; 증가시키기 전의 값을 result에 넣는다
+let result = ++num; //1증가 시킨 값을 result에 넣는다
+
+console.log(result);
+```
+위의 코드에서 ++가 num앞에 위치한 결과와 뒤에 위치한 결과는 서로 다르다는 것을 유의하자
+
+* ###  #6 - 비교 연산자, 조건문(if, else) <br>
 
 
 ### Javascript For Intermediate
