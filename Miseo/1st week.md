@@ -485,6 +485,100 @@ if(gender === 'M' && name === 'Mike' || isAdult){
 <br>
 
 * ###  #8 - 반복문(for, while, do while) <br>
+반복문 loop : 동일한 작업을 여러번 반복<br>
+
+**for문**
+```javascript
+for(let i = 0; i < 10; i ++){
+    //반복할 코드
+}
+// let i = 0 초기값
+// i < 10 조건 (false가 되면 멈춤)
+// i++ 코드 실행 후 작업
+```
+for문은 `;`으로 구분하며, 세 부분으로 나눌 수 있다 <br>
+초기값을 지정하고, 조건이 true이면 코드를 실행, 괄호 세번째 부분의 작업 진행 <br>
+-> 다시 조건 확인, 코드실행, 작업 실행 <br>
+-> 조건을 확인 했을 시 false이면 반복문을 빠져나온다 <br>
+
+```javascript
+// 1부터 10까지 로그
+
+for(let i = 0; i < 10; i++){
+    console.log(i+1)
+}
+
+for(let i = 0; i < 11; i++){
+    console.log(i)
+}
+
+for(let i = 0; i <= 10; i++){
+    console.log(i)
+}
+```
+
+**whlie문** <br>
+```javascript
+let i = 0;
+
+while(i < 10){
+    //코드
+    ++i
+}
+```
+```javascript
+let i = 0;
+
+wihle(i < 10){
+    console.log(i);
+    i++;
+}
+```
+위 코드에서 최초의 i는 0이므로 10보다 작다는 조건 충족 -> 코드실행 -> i는 1증가 <br>
+다시 조건 확인 후 반복실행 -> i가 9까지 동일한 작업 후 10이 되면 반복문을 빠져나옴<br>
+<br>
+
+**do..while문**
+```javascript
+let i = 0;
+
+do{
+    //코드
+    ++i
+} while (i < 10)
+```
+while과의 차이점은 코드를 보면 코드를 실행하고 조건을 확인하는 것을 알 수 있음 -> do..while은 적어도 한 번은 실행함 <br>
+<br>
+**break, continue** <br>
++ break : 멈추고 빠져나옴
++ continue : 멈추고 다음 반복으로 진행 <br>
+
+```javascript
+// break
+while(true){
+    let answer = confirm('계속 할까요?');
+    if(!answer){
+        break;
+    }
+}
+```
+위 코드는 confirm메시지가 계속 시행되다가 취소(=false)를 누르게 되면 break되어 반복문을 빠져나온다 <br>
+```javascript
+// continue
+// 짝수만
+
+for(let i = 0; i < 10; i++){
+    if(i%2){
+        continue;
+    }
+    console.log(i)
+}
+```
+위 코드의 실행 결과는 0 2 4 6 8로 모두 짝수만 출력이 된다 <br>
+\+ 명확한 횟수를 안다면 for문을 그게 아니라면 while문을 쓰는 게 더 좋다 <br><br>
+
+* ###  #9 - switch <br>
+
 
 ### Javascript For Intermediate
 
