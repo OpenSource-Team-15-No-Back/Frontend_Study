@@ -34,6 +34,7 @@ let name = "google";
 위의 코드는 에러가 발생한다 <br>
 <br>
 let을 한 번 선언 후 다른 값으로 바꾸기 위해서는 의도적으로 let을 생략하고 변수를 적는다 <br>
+
 ```javascript
 let grade = "F";
 
@@ -73,7 +74,6 @@ const name2 = 'Mike'
 const name3 = `Mike`
 ``` 
 위와 같이 ' '," ",\` `모두 가능 <br>
-<br>
 
 ```javascript
 const message = "I'm a boy.";
@@ -214,6 +214,9 @@ console.log(isAdult) //확인을 누를 시 console창에는 true가 출력, 취
 2. 스타일링 x (위치와 모양을 정할 수 없음) <br>
 
 * ###  #4 - 형변환 <br>
+**String()** - `문자형`으로 변환
+**Number()** - `숫자형`으로 변환
+**Boolean()** - `불린형`으로 변
 
 ### Javascript For Intermediate
 
