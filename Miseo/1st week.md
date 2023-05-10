@@ -209,14 +209,89 @@ console.log(isAdult) //확인을 누를 시 console창에는 true가 출력, 취
 2. prompt는 사용자에게 메시지를 보여주고 어떤 값을 입력받을 수 있는 필드를 제공 -> 취소를 누르면 null 반환 / 두 번째 인수를 넣으면 default값을 제공 <br>
 3. confirm은 사용자에게 확인을 받기 위한 용도로 사용됨 확인 버튼은 true를, 취소 버튼은 false를 반환함 <br>
 <br>
-+ 단점
-1. 스크립트 일시 정지 (창을 닫기 전에는 이후 동작에 제한을 받음)
++ 단점 <br>
+1. 스크립트 일시 정지 (창을 닫기 전에는 이후 동작에 제한을 받음) <br>
 2. 스타일링 x (위치와 모양을 정할 수 없음) <br>
 
 * ###  #4 - 형변환 <br>
-**String()** - `문자형`으로 변환
-**Number()** - `숫자형`으로 변환
-**Boolean()** - `불린형`으로 변
+**String()** - `문자형`으로 변환 <br>
+**Number()** - `숫자형`으로 변환 <br>
+**Boolean()** - `불린형`으로 변환 <br>
+
+```javascript
+const mathScore = prompt("수학 몇점?"); //입력값을 90
+const engScore = prompt("영어 몇점?"); //입력값을 80
+const result = (mathScore + engScore) / 2;
+
+console.log(result)
+```
+위의 코드의 출력 값은 4540이 나온다 <br>
+왜 그럴까? -> 문자형을 받아서이다!! ("90" + "80" = "9080" / "9080" / 2 = 4540) <br>
+prompt 입력 -> `문자형` <br> <br>
+그런데 "9080" / 2 가 제대로 작동한 이유는 무엇일까? <br> 
+-> 숫자형이 아니더라도 / 같은 표현식은 숫자형으로 자동 변환 되어 계산됨 <br>
+EX) "6" / "2" = 3 <br>
+바로 이러한 과정을 `자동 형변환`이라고 한다 <br>
+자동 형변환은 원인을 찾기 힘든 에러를 발생시킬 수 있음 <br>
+-> 항상 의도를 가지고 원하는 타입으로 변환하는 것이 좋다! => `명시적 형변환` <br>
+<br>
+1. String() <br>
+괄호 안의 타입을 문자형으로 바꾸어 줌 <br>
+```javascript
+console.log(
+String(3), 
+String(true),
+String(false),
+String(null),
+String(undifined)
+)
+// "3" "true" "false" "null" "undefined"
+```
+2. Number() <br>
+괄호 안의 타입을 숫자형으로 바꾸어 줌 (보통 사용자로부터 입력받은 값이 문자형인 경우 자주 사용) <br>
+```javascript
+console.log(
+Number("1234"), // 1234
+Number("1234akjdls) //NaN
+)
+```
+문자열안에 숫자가 아닌 글자를 넣을 경우 NaN이 출력됨으로 주의 <br>
+
+```javascript
+console.log(
+Number(true), // 1
+Number(false) // 0
+)
+```
+Number 형변환에 true와 false는 각각 1과 0으로 출력된다 <br>
+
+3. Boolean() <br>
+`false`의 경우를 기억하기 <br>
++ 숫자0
++ 빈문자열''
++ null
++ undefined
++ NaN <br>
+위의 값의 예외는 모두 `true`반환 <br><br>
+
+### 정리 <br>
+String() -> `문자형`으로 변환 <br>
+Number() -> `숫자형`으로 변환 <br>
+\*Number("문자")//NaN
+Boolean() -> `불린형`으로 변환 <br>
+\*0, '', null, undefined, NaN -> false <br>
+<br>
+
+### 주의사항 (외우기) <br>
++ Number(null) //0
++ Number(undefined) //NaN 
++ Boolean(0) //false
++ Boolean('0') //true
++ Boolean('') //false
++ Boolean(' ') //true <br><br>
+
+* ###  #5 - 기본 연산자 <br>
+
 
 ### Javascript For Intermediate
 
