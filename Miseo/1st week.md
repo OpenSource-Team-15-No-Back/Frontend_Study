@@ -34,6 +34,7 @@ let name = "google";
 위의 코드는 에러가 발생한다 <br>
 <br>
 let을 한 번 선언 후 다른 값으로 바꾸기 위해서는 의도적으로 let을 생략하고 변수를 적는다 <br>
+
 ```javascript
 let grade = "F";
 
