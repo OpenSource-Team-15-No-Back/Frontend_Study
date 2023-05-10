@@ -155,7 +155,7 @@ console.log(age > 40) //false
 4. null 과 undefined <br>
 **null** - 존재하지 않는 값 <br>
 **undefined** - 값이 할당 되지 않았음<br>
-<br>
+
 ```javascript
 let age;
 console.log(age) //undefined 출력
