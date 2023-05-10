@@ -338,7 +338,77 @@ console.log(result);
 위의 코드에서 ++가 num앞에 위치한 결과와 뒤에 위치한 결과는 서로 다르다는 것을 유의하자
 
 * ###  #6 - 비교 연산자, 조건문(if, else) <br>
+비교 연산자 <br>
++ <
++ \>
++ <=
++ \>=
++ ==
++ != <br>
 
+```javascript
+console.log(10 > 5); // true
+console.log(10 == 5); // false
+console.log(10 != 5); // true
+```
+위 코드에서 ==은 `동등연산자`라고 부른다 <br>
+<br>
+```javascript
+const a = 1;
+const b = "1";
+
+console.log(a == b); // true
+console.log(a === b); // false
+```
+===는 a와 b 사이에 타입까지 비교해주는 `일치 연산자`이다<br>
+<br>
+**조건문** <br>
+1. if문 - 괄호 안에 들어가는 조건을 평가해 true일 시 실행
+```javascript
+if(age > 19) //if뒤 괄호 안의 값은 항상 boolean형으로 변환된 뒤 판단 됨
+{
+    console.log('환영합니다.');
+} //코드가 한 줄인 경우 중괄호 없어도 괜찮지만 항상 써주는게 좋다
+```
+위의 코드는 age가 19보다 크면 중괄호 안의 코드가 실행됨
+
+```javascript
+if(age > 19){
+    console.log('환영합니다.');
+}
+
+if(age <= 19){
+    console.log('안녕히가세요.');
+}
+```
+위 코드를 더 간단하게 줄이기 위해 `else`를 사용할 수 있다!<br>
+<br>
+2. else절 - if문의 조건이 false일 때 실행 <br>
+```javascript
+const age =10;
+
+if(age > 19){
+    console.log('환영 합니다.');
+} else {
+    console.log('안녕히 가세요.');
+}
+```
+age가 19보다 크면 4번째 줄 실행, 그렇지 않으면 6줄 실행 <br>
+
+3. else-if절 <br>
+```javascript
+const age =10;
+
+if(age > 19){
+    console.log('환영 합니다.');
+} else if (age === 19){
+    console.log('수능 잘치세요.');
+} else{
+    console.log('안녕히 가세요.');
+}
+```
+<br>
+* ###  #7 - 논리 연산자 (AND, OR, NOT) <br>
 
 ### Javascript For Intermediate
 
