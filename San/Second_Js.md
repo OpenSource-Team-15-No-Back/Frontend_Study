@@ -1,7 +1,7 @@
 # JavaScript
 ----
 
- #### Computed Property 
+#### Computed Property 
  
  : 자바스크립트 객체는 키(Key)와 값(Value)로 구성된 프로퍼티(property)들의 집함
  
@@ -36,7 +36,7 @@ Object.assign({gender :'male'},user);
 - Object.assign()을 이용하게 되면, 새로운 객체가 생성되어 객체의 값을 수정 및 변경하여도 본래의 객체는 원상의 형태를 보존할 수 있으며,
   이때는 assign된 새로운 객체만 변경된다.
   
-  #### Object.keys() : 키 배열 반환
+#### Object.keys() : 키 배열 반환
   
   ```
   const user = {
@@ -48,7 +48,7 @@ Object.assign({gender :'male'},user);
   
   ```
   
-  #### Object.values() : 값 배열 반환
+#### Object.values() : 값 배열 반환
   
   
  ```
@@ -62,7 +62,7 @@ Object.assign({gender :'male'},user);
   ```
   
   
-  #### Object.entries() : 키와 값 배열 반환
+#### Object.entries() : 키와 값 배열 반환
   
   
    ```
