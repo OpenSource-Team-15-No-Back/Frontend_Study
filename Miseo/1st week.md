@@ -65,7 +65,7 @@ const BIRTH_DAY = '2020-01-01';
 4. 가급적 상수는 대문자로 알려주기
 5. 변수명은 읽기 쉽고 이해할 수 있게 선언 <br>
 <br>
-* ###  #2 - 자료형 
+* ### #2 - 자료형 <br>
 1. 문자형 String <br>
 ```javascript
 const name1 = "Mke"
