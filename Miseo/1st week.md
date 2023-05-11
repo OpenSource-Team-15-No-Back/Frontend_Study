@@ -578,7 +578,87 @@ for(let i = 0; i < 10; i++){
 \+ 명확한 횟수를 안다면 for문을 그게 아니라면 while문을 쓰는 게 더 좋다 <br><br>
 
 * ###  #9 - switch <br>
+```javascript
+//switch 작성법
 
+switch(평가){
+    case A:
+        //A일때 코드
+    case B:
+        //B일때 코드
+        ...
+}
+```
+위의 코드를 if 문으로 변환하면
+```javascript
+if(평가 == A){
+    //A일때 코드
+} else if(평가 == B){
+    //B일때 코드
+}
+```
+밑의 if문과 위의 switch문은 같은 동작을 수행한다 <br>
+
+switch문은 break를 통해서 빠져나감
+
+```javascript
+// 예문
+// 사과 : 100원
+// 바나나 : 200원
+// 키위 : 300원
+// 멜론 : 500원
+// 수박 : 500원
+// 사고 싶은 과일을 물어보고 가격 알려주기
+
+let fruit = prompt("무슨 과일을 사고 싶나요?");
+
+switch(fruit){
+    case '사과' :
+        console.log("100원 입니다.");
+    case '바나나' :
+        console.log("200원 입니다.");
+    case '키위' :
+        console.log("300원 입니다.");
+    case '멜론' :
+        console.log("500원 입니다.");
+    case '수박' :
+        console.log("500원 입니다.");
+}
+// 위의 코드를 그대로 실행시 입력을 '바나나'라고 하는 경우 200원 입니다. 300원 입니다. 500원 입니다. 500원 입니다.가 모두 출력됨
+
+//그러하여 break를 통하여 switch문을 빠져나오도록 함
+
+switch(fruit){
+    case '사과' :
+        console.log("100원 입니다.");
+        break;
+    case '바나나' :
+        console.log("200원 입니다.");
+        break;
+    case '키위' :
+        console.log("300원 입니다.");
+        break;
+    case '멜론' :
+        console.log("500원 입니다.");
+        break;
+    case '수박' :
+        console.log("500원 입니다.");
+        break;
+    default :
+        console.log('그런 과일은 없습니다.');
+}
+//위 코드를 실행시 '바나나'를 입력한 경우 200원 입니다. 라는 출력이 제대로 나옴
+
+//실행하는 코드가 같을 경우 case문을 연속으로 두어 실행할 수 있다
+
+case '멜론' :
+case '수박' :
+    console.log("500원 입니다.");
+```
+그렇다면 사용자가 case가 없는 경우를 입력하는 경우 -> defulat값을 설정해두면 default 출력 없으면 아무것도 출력 X <br>
+<br>
+
+* ###  #10 - 함수(function)의 기초 <br>
 
 ### Javascript For Intermediate
 
