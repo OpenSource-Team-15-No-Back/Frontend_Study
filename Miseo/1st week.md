@@ -659,6 +659,126 @@ case '수박' :
 <br>
 
 * ###  #10 - 함수(function)의 기초 <br>
+<br>
+함수작성법 <br>
+
+```javascript
+function sayHello(name){
+    console.log(`Hello, ${name}`);
+}
+// function - 함수 / sayHello - 함수명 / name - 매개변수
+
+//매개변수는 없을 수도 1개 일수도, 여러개 일수도 있다 여러개를 받을 때는 쉼표로 구분해준다
+
+sayHello('choms'); // 함수 호출
+```
+
+<br>
+
+```javascript
+//함수 작성
+// 매개변수가 있는 함수
+
+function sayHello(name){
+    let msg = `Hello`;
+    if(name){
+        // msg = `Hello, ${name}`;
+        // msg += ', ' + name;
+        msg += `, ${name}`;
+    }
+    console.log(msg);
+} 
+// 현재 msg라는 변수는 함수안에서만 사용되는 지역변수 (local varable)이다
+
+//어디서나 접근가능한 변수 - 전역 변수 (global varable)
+
+sayHello('Mike'); //"Hello, Mike"
+sayHello('Tom'); //"Hello, Tom"
+sayHello('Jane'); //"Hello, Jane"
+```
+
+```javascript
+// 전역 변수와 지역 변수
+
+let msg = "welcome"; // 전역 변수
+console.log(msg) // "Welcome"
+
+function sayHello(name){
+    leg msg = "Hello" // 지역 변수
+    console.log(msg + ' ' + name); // "Hello Mike"
+}
+
+sayHello('Mike');
+console.log(msg) // "Welcome"
+```
+실행결과를 보았을 때 전역 변수와 지역변수는 서로 간섭을 받지 않는 다는 것을 알 수 있음 <br>
+
+```javascript
+let name = 'Mike';
+
+function sayHello(name){
+    console.log(name)
+}
+
+sayHello(); //undefined
+sayHello('Jane'); //"Jane"
+```
+매개변수로 받은 값은 복사된 후 함수의 지역변수가 됨 -> 전역변수보단 함수에 특화된 지역 변수를 사용하는 것이 좋다 <br>
+
+```javascript
+// OR 
+
+function sayHello(name){
+    let newName = name || 'friend'; // name변수가 있으면 name을 넣고 없으면 friend를 넣어줌
+    let msg = `Hello, ${newName}`
+    console.log(msg)
+}
+
+sayHello(); // "Hello, friend"
+sayHello('Jane'); //"Hello, Jane"
+
+//default value
+
+function sayHello(name = 'friend'){ // name = 'friend'라고 함으로써 default value를 설정해줌
+    let msg = `Hello, ${name}`
+    console.log(msg)
+}
+
+sayHello();
+sayHello('Jane');
+
+// return 으로 값 반환
+
+function add(num1, num2){
+    return num1 + num2;
+}
+
+const result = add(2,3);
+console.log(result) // 5
+
+function showError(){
+    alert('에러가 발생했습니다.');
+    return; // undefined
+    alert('이 코드는 절대 실행되지 않습니다.');
+}
+
+const result = showError();
+console.log(result);
+```
+<br>
+함수 사용 팁<br>
+
+* 한번에 한작업에 집중 - 하나의 함수가 여러작업을 진행하면 함수를 더 잘게 나누어 사용하는 것이 좋다 <br>
+* 읽기 쉽고 어떤 동작인지 알 수 있게 네이밍
+> showError // 에러를 보여줌 <br>
+getName // 이름을 얻어옴 <br>
+createUserData // 유저데이터 생성 <br>
+checkLogin // 로그인 여부 체크
+<br>
+
+<br>
+
+* ###  #11 - 함수 표현식, 화살표 함수(arrow function) <br>
 
 ### Javascript For Intermediate
 
