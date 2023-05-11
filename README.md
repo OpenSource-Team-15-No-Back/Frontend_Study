@@ -17,13 +17,13 @@
 
 각자 JavaScript와 React.js 스터디 내용을 기록하는 Repository입니다.
 
-## Repository 사용 규칙!
+## Repository 사용 규칙
 
 ✅ 개인 Branch에서 먼저 커밋하신 후 `Pull Request` 부탁드립니다.
 
 ✅ 개인 Branch가 최신 커밋이 아닌 경우 개인 Branch에서 `Sync Fork` 버튼을 눌러 최신 커밋으로 업데이트할 수 있습니다.
 
-## 커밋 메시지 규칙!
+## 커밋 메시지 규칙
 
 - feat : 새로운 기능 추가
 - fix : 버그 수정
