@@ -147,6 +147,103 @@ arr.concat([6.7]);// [1,2,3,4,5,6,7]
 
 ```
 
+- arr. find() : 원하는 값을 찾고 반환해줌단, 첫번째만
+
+```
+
+const result = userList.findIndex((user)=>{
+    if(user.age <19){
+    return true;
+    }
+    else return false;
+});
+console.log(result); // {name:"Tom" ,age:10}
+
+```
+첫 번째 true값만 반환 후 종료, 없다면, undefind
+
+-arr.filter(fn) :  조건에 모두 만족하는 것들을 다출력함 / find 같은 경우 첫번쨰 값만 반환
+
+```
+const arr = [1,2,3,4,5,6];
+const result = arr.filter((item)=>{
+    return item%2 === 0;
+});
+
+console.log(result);//[2,4,6] ->원하는 값을 모두 출력해줌
+
+```
+
+- arr.reverse() : 역순으로 재정렬 <br>
+: 최근 가입된 유저붙 보여줄때, 게시판에서 가장 최근에 작성된 순서로 정렬할 떄 유용하게 사용
+
+```
+const arr = [1,2,3,4,5,6];
+arr.reverse();//[6,5,4,3,2,1]
+
+```
+
+- arr.map(fn) : 함수를 받아 특정 기능을 시행하고 새로운 배열을 반환<br>
+기존에 있는 객체가 보존된다는 것이 특징 / 자주 사용되니 문번 외우기!
+
+```
+let userList = [
+    {name:'Mike', age:30 },
+    {name:'Jane', age:27 },
+    {name:'Tom', age:10 },
+]
+
+
+let newUserList =userList.map((user.index)=>{
+    return Object.assign({}, user{
+        id: index+1,
+        isAdult:user.age>19,
+    })
+});
+
+console.log(newUserList); // user의 list에 id와 isAdult 추가
+console.log(userList); // user 객체 보존
+
+```
+
+- arr.join(), split() : 합치고 ,나누고 /()안에 들어가는 것이 나누는 기준이 됨
+
+```
+let arr = ["안녕","나는","철수"];
+let result = arr.join("-");
+console.log(result);//안녕-나는-철수
+
+const users = "Mike,Jane,Tom,Tony";
+const result =user.spilt(",") // ,를 기준으로 문자열을 나배열 형태로 나눠줌
+
+console.log(result); // ["Mike","Jane","Tom","Tony"]
+
+
+```
+
+- arr.isArray() : 배열 인지 확인하는 방법 
+
+
+```
+let user ={
+    name: "Mike",
+    age:30,
+}; // -> 객체형태
+
+let userList =["Mike","Jane","Tom"]
+
+console.log(Array.isArray(userList)); //true
+console.log(Array.isArray(user)); // false
+
+```
+
+
+
+
+
+
+
+
 
 
 
