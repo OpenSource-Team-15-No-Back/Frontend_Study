@@ -14,7 +14,7 @@
  
 [var]
  
- ```
+ ```javascript
   // var같은 경우 중복 선언 가능
  var name = 'Mike';
  console.log(name); //Mike
@@ -34,14 +34,14 @@
   
  [let]
  
-```
+```javascript
 console.log(name)/ ReferenceError
 let name = 'Mike';// let으로도 호스팅 가능
 ``` 
 
 [let, var, const 선언 비교]
 
-```
+```javascript
 let name;
 console.log(name); // 'Mike'
 name = 'Mike';
@@ -65,7 +65,7 @@ name = 'Mike';
 * var : 함수 스코프
 * const,let : 블록 스코프 (if군, for문, while문 등..)
 
-```
+```javascript
 const age = 30;
 if(age>19){
  var text = '성인';
