@@ -5,7 +5,7 @@
  
  : 자바스크립트 객체는 키(Key)와 값(Value)로 구성된 프로퍼티(property)들의 집함
  
-```
+```javascript
  let a= 'age';
  const user = {
   name : 'Mike', // key - name ,value - 'Mike'
@@ -17,7 +17,7 @@
  
 #### Object.assign() : 객체 복제
 
-``` 
+``` javascript
 const user ={
  name : 'Mike',
  age : 30
@@ -38,7 +38,7 @@ Object.assign({gender :'male'},user);
   
 #### Object.keys() : 키 배열 반환
   
-  ```
+  ```javascript
   const user = {
    name: 'Mike',
    age : 30, 
@@ -51,7 +51,7 @@ Object.assign({gender :'male'},user);
 #### Object.values() : 값 배열 반환
   
   
- ```
+ ```javascript
   const user = {
    name: 'Mike',
    age : 30, 
@@ -65,7 +65,7 @@ Object.assign({gender :'male'},user);
 #### Object.entries() : 키와 값 배열 반환
   
   
-   ```
+   ```javascript
   const user = {
    name: 'Mike',
    age : 30, 
