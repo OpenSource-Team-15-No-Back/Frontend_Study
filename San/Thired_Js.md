@@ -13,7 +13,7 @@ console.log(b) // Symbol()
 
 ``` 
 
-### Property ket Symbol 
+### Property key Symbol 
 
 ```javascript
 const id = Symbol('Id');
