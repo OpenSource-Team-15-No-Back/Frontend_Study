@@ -20,7 +20,7 @@ console.log(desc.length); // 5
 let desc = '안녕하세요'
 console.log(desc[2]); // 하
 
-```javascript
+```
 - .toUpperCase() / toLowerCase()
 
 ```javascript
@@ -147,7 +147,7 @@ arr.concat([6.7]);// [1,2,3,4,5,6,7]
 
 ```
 
-- arr. find() : 원하는 값을 찾고 반환해줌단, 첫번째만
+- arr. find() : 원하는 값을 찾고 반환해준다. 단, 첫번째만
 
 ```javascript
 
