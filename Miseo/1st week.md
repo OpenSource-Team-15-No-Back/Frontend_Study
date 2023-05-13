@@ -1008,3 +1008,146 @@ for(x in Mike){ // 여기서 x부분은 Mike 객체가 가지고 있는 key값�
 ```
 
 * ###  #13 - 객체(Object) - method, this <br>
+
+`method` : 객체 프로퍼티로 할당 된 함수
+
+```javascript
+const superman = {
+    name : 'clark',
+    age : 33,
+    fly : function(){
+        console.log('날아갑니다.')
+    }
+}
+    superman.fly(); // 날아갑니다.
+
+// 또한 위의 코드를 function 키워드를 생략하여 단축할 수도 있다
+const superman = {
+    name : 'clark',
+    age : 33,
+    fly(){
+        console.log('날아갑니다.')
+    }
+}
+```
+위 코드에서는 fly함수가 superman 객체의 method이다<br>
+
+```javascript
+const user = {
+    name : 'Mike',
+    sayHello : function(){
+        console.log(`Hello,I'm ${this.name}`); // 여기에서 user.name이 아니라 this키워드를 사용한다는 점을 주의
+    }
+}
+
+user.sayHello(); // Hello, I'm Mike
+```
+this에 대하여 더 알기 위한 코드
+```javascript
+let boy = {
+    name : 'Mike',
+    sayHello,
+}
+
+let girl = {
+    name : 'Jane',
+    sayHello,
+}
+
+sayHello : function(){
+    console.log(`Hello,I'm ${this.name}`);
+}
+
+boy.sayHello(); // Hello, I'm Mike
+girl.sayHello(); // Hello, I'm Jane
+```
+
+this를 사용할 때 화살표 함수를 사용하게 되면 일반 함수와는 달리 자신만의 this를 가지지 않는다 <br>
+
+그러므로 화살표 함수 내부에서 this를 사용하면, 그 `this는 외부에서 값을 가져온다`
+<br>
+
+```javascript
+let boy = {
+    name : 'Mike',
+    sayHello : () =>{
+        console.log(this); // 전역객체를 가리킴
+    }
+}
+
+boy.sayHello(); // this != boy
+```
+
+```javascript
+let boy = {
+    name : 'Mike',
+    showName : function(){
+        console.log(boy.name)
+    }
+};
+
+let man = boy;
+man.name = "Tom"
+man.ShowName(); // "Mike"
+console.log(boy.name) // "Tom"
+
+// boy가 null이라면
+let boy = {
+    name : 'Mike',
+    showName : function(){
+        console.log(boy.name)
+    }
+};
+
+let man = boy;
+boy = null;
+
+man.ShowName(); // 오류가 남 왜냐하면 boy의 name값이 null이 되어 사라졌으므로 동작이 안됨
+
+//this를 써준다면
+let boy = {
+    name : 'Mike',
+    showName : function(){
+        console.log(this.name)
+    }
+};
+
+let man = boy;
+boy = null;
+
+man.ShowName(); // "Mike"
+```
+
+```javascript
+// 화살표 함수를 사용하는 method
+
+let boy = {
+    name : 'Mike',
+    sayThis : function(){
+        console.log(this); // 여기서 this는 객체를 의미함
+    }
+};
+
+boy.sayThis(); 
+// Object {
+//  name: "Mike",
+//  sayThis: function ( {
+//      console.log(this);
+//  })
+//}
+
+// 화살표 함수로 바꾼다면?
+let boy = {
+    name : 'Mike',
+    sayThis : () => {
+        console.log(this); // 여기서 this는 전역객체를 가리킴
+    }
+};
+
+boy.sayThis(); // 윈도우 창이 뜸
+```
+<br>
+
+* ###  #14 - 배열(Array) <br>
+
+
