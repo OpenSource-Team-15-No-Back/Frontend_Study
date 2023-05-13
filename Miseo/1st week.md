@@ -1150,4 +1150,118 @@ boy.sayThis(); // 윈도우 창이 뜸
 
 * ###  #14 - 배열(Array) <br>
 
+`배열` : `순서`가 있는 `리스트`<br>
 
+만약 1번에 철수, 2번에 영희 ...30번에 영수라고 한다면 <br>
+let students = ['철수','영희', ... '영수'];<br>
+위와 같이 표현을 할 수 있다. 이 때 배열은 탐색시에 고유번호를 사용하는데, 이를 `index`라고 한다. <br>
+index는 0부터 시작한다 <br>
+
+index를 이용하면 읽을 때, 수정할 때 사용할 수 있다 <br>
+
+* 읽어올 때
+>console.log(students[0]); //철수 <br>
+console.log(students[1]); // 영희 <br>
+console.log(students[29]); // 영수 <br>
+
+* 수정할 때
+>students[0] = '민정'; <br>
+console.log(students) // [`'민정'`,'영희',...]
+
+<br>
+
+**배열의 특징**<br>
+
+ ```javascript
+ //배열은 문자 뿐만 아니라, 숫자, 객체, 함수 등도 포함할 수 있다
+
+ let arr = [
+    '민수', // 문자
+    3, // 숫자
+    false, // Boolean
+    {
+        name : 'Mike', // 객체
+        age : 30,
+    },
+    function(){ // 함수
+        console.log('TEST');
+    }
+ ];
+```
+<br>
+
+`length` : 배열의 길이 // 그 배열이 가지고 있는 요소의 개수 반환<br>
+students.length // 30 <br>
+
+* 배열의 메소드
+    * `push()` : 배열 끝에 추가 // 여러 요소 한 번에 추가 가능
+    ```javascript
+    let days = ['월','화','수'];
+    days.push('목')
+    console.log(days) //['월','화','수','목']
+    ```
+    * `pop()` : 배열 끝 요소 제거
+    ```javascript
+    let days = ['월','화','수'];
+    days.pop()
+    console.log(days) //['월','화']
+     ```
+    * `shift()` : 배열 앞에 제거
+    * `unshift()` : 배열 앞에 추가 // 여러 요소 한 번에 추가 가능 
+    ```javascript
+    //추가
+    days.unshift('일');
+    console.log(days) //['일','월','화','수'];
+
+    //제거
+    days.shift();
+    console.log(days) // ['월', '화', '수'];
+    ```
+    <br>
+
+* 반복문 : for
+```javascript
+let days = ['월', '화', '수'];
+
+for(let index = 0; index < days.length; index++){
+    console.log(days[index])
+}
+```
+
+* 반복문 : for ... of // for..in이 아님 주의
+```javascript
+let days = ['월', '화', '수'];
+
+for(let day of days){
+    console.log(day)
+}
+// for문 보다는 간단하지만 index를 얻지 못한다는 단점을 가짐
+```
+<br><br>
+
+```javascript
+// 배열 예시
+let days = ["mon", "tue", "wed"];
+
+days[1] = '화요일'
+
+console.log(days); // ["mon", "화요일", "wed"]
+console.log(days.length); // 3
+```
+
+```javascript
+let days = ["mon", "tue", "wed"];
+
+days.push("thu");
+days.unshift('sun');
+
+console.log(days); // ["sun", "mon", "tue", "wed", "thu"]
+
+for(let index = 0; index<days.length; index++){
+    console.log(days[index]);
+} // "sun" "mon" "tue" "wed" "thu"가 순서대로 출력
+
+for(let x of days){ //이때 x는 days배열 안의 값들을 말함
+    console.log(x)
+} //  "sun" "mon" "tue" "wed" "thu"가 순서대로 출력
+```
