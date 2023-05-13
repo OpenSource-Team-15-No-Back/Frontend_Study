@@ -868,13 +868,143 @@ const superman = {
     * 추가도 `.`과 `[]`을 통해서 가능함<br>
     ex) superman.gender = 'male';<br>
     superman['hairColor'] = 'black';<br>
-    * 삭제는 delete 키워드를 사용한다<br>
-    ex) delete superman.hairColor;
+    * 삭제는 delete 키워드를 삭제하고 싶은 프로퍼티 앞에 사용한다<br>
+    ex) delete superman.hairColor;<br><br>
+    
+    Object - **단축 프로퍼티**<br>
 
+```javascript
+const name = 'clark';
+const age = 33;
 
+const superman = {
+    name, // name : name
+    age, // age : age
+    gender: 'male';
+}
+``` 
+<br>
 
+Object - **프로퍼티 존재 여부 확인**
+```javascript
+//만약 없는 프로퍼티에 접근하게 되면
 
+superman.birthDay; // 에러가 발생하지 않고 undefined가 출력된다
 
-### Javascript For Intermediate
+// 프로퍼티는 in연산자를 사용하여 프로퍼티 존재 여부를 확인할 수 있다
+'birthDay' in superman; // false -> birthDay라는 프로퍼티가 superman 객체에 없다
 
-# React JS
+'age' in superman; // ture -> age라는 프로퍼티가 superman 객체에 있다
+```
+
+<br>
+
+**for ... in 반복문** - 객체를 순회하면서 값을 얻을 수 있다 <br>
+```javascript
+for(let key in superman){
+    console.log(key)
+    console.log(superman[key])
+}
+```
+<br>
+
+<br>
+객체의 예시 <br>
+
+```javascript
+const superman = {
+    name : 'clark',
+    age : 30,
+}
+
+console.log(superman.name) // "clark"
+console.log(superman['age']) // 30
+
+console.log(superman)
+// Object{
+//   age: 30,
+//   name: "clark"
+// }
+
+superman.hairColor = 'black'; // 프로퍼티 추가
+superman['hobby'] = 'football'; // 프로퍼티 추가
+console.log(superman)
+// Object{
+//   age: 30,
+//   hairColor: "black",
+//   hobby: "football",
+//   name: "clark"
+// }
+
+delete superman.age;
+console.log(superman)
+// Object{
+//   hairColor: "black",
+//   hobby: "football",
+//   name: "clark"
+// }
+```
+<br>
+객체의 예시 2 <br>
+
+```javascript
+// 이름과 나이를 받아서 객체를 반환하는 함수를 만든다
+function makeObject(name, age){
+    return{
+        name, // name : name 축약형
+        aga, // age : age 축약형
+        hobby : 'football'
+    }
+}
+
+const Mike = makeObject("Mike", 30);
+console.log(Mike);
+// Object{
+//   age : 30,
+//   hobby: "football",
+//   name: "Mike"
+// }
+console.log("age" in Mike); // true - 프로퍼티 존재 O
+console.log("birthday" in Mike); // false - 프로퍼티 존재 X
+```
+<br>
+
+**객체의 예시 3** <br>
+```javascript
+function isAdult(user){
+    if(!('age' in user) || // user에 age가 없거나 
+    user.age < 20){ // 20살 미만이거나
+        return false;
+    } 
+    return true;
+}
+
+const Mike = {
+    name : "Mike",
+    age : 30
+};
+
+const Jane = {
+    name: "Jane"
+};
+
+console.log(isAdult(Mike)) // true
+console.log(isAdult(Jane)) // false
+```
+<br>
+
+**객체 for ... in문 예제**<br>
+
+```javascript
+const Mike = {
+    name: "Mike",
+    age: 30
+};
+
+for(x in Mike){ // 여기서 x부분은 Mike 객체가 가지고 있는 key값들을 의미함
+    console.log(Mike[x]) // 먼저 Mike['name']을 돌고 Mike['age']를 돌아서 출력이 
+// "Mike" 30 이렇게 나옴
+}
+```
+
+* ###  #13 - 객체(Object) - method, this <br>
