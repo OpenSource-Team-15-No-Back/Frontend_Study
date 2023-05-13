@@ -850,6 +850,29 @@ const add = (num1, num2) => (
 ```
 
 * ###  #12 - 객체(Object) <br>
+```javascript
+//만약 Superman이 있는데 name은 clark이고, 나이는 33이라고 하자 이걸 객체로 표현하면
+
+const superman = {
+    name: 'clark', //name은 키(key),'clark'는 값(value)
+    age: 33,
+}
+// 각 프로퍼티는 ,로 구분함 마지막의 ,는 없어도 되지만 있는게 수정, 삭제, 이동에 용이
+```
+
+* 각 object에 접근, 추가, 삭제<br>
+
+    * 접근은 `.`과 `[]`을 통해서 가능함<br>
+    ex) superman.name<br>
+    superman['age']<br>
+    * 추가도 `.`과 `[]`을 통해서 가능함<br>
+    ex) superman.gender = 'male';<br>
+    superman['hairColor'] = 'black';<br>
+    * 삭제는 delete 키워드를 사용한다<br>
+    ex) delete superman.hairColor;
+
+
+
 
 
 ### Javascript For Intermediate
