@@ -780,6 +780,101 @@ checkLogin // 로그인 여부 체크
 
 * ###  #11 - 함수 표현식, 화살표 함수(arrow function) <br>
 
+함수 선언문 vs 함수 표현식
+
+```javascript
+function sayHello(){
+    console.log('Hello');
+} // 함수 선언문
+
+let sayHello = function(){
+    console.log('Hello');
+} // 함수 표현식
+
+sayHello(); // 동작하는 방식은 함수 선언문과 표현식 둘 다 동일
+```
+그렇다면 둘의 차이는 무엇일까?<br>
+-> 함수 선언문 : `어디서든 호출 가능` <br>
+<br>
+자바스크립트는 실행 전 초기화 단계에서 코드의 모든 함수 선언문을 찾아 생성해둠 -> 여기에서 함수를 사용 가능한 범위는 코드 위치보다 위로 올라가는 것도 가능 => 이를 `호이스팅(hoisting)`이라고 부름
+<br><br>
+함수 표현식은 자바스크립트가 한 줄씩 읽으면서 실행하므로 `해당 코드에 도달하면 생성`하고 그 이후에 호출이 가능하다
+<br>
+<br>
+결론적으로는 위치 제약이 없는 함수 선언문이 좀 더 편리하다
+
+* 화살표 함수(arrow function)
+<br>
+```javascript
+let add = function(num1,num2){
+    return num1 + num2;
+}
+// 위의 함수를 화살표 함수로 작성한다면
+let add = (num1,num2)=>{
+    return num1 + num2;
+}
+//여기서 {}문이 한 줄이고 return문이 있으므로
+let add = (num1,num2)=> (num1 + num2;)
+//return문이 한 줄이면 괄호도 생략가능 
+let add = (num1,num2) => num1 + num2;
+```
+
+```javascript
+let sayHello = (name) => `Hello, ${name}`;
+//인수가 하나이면 괄호를 생략 가능
+let sayHello = name => `Hello, ${name}`;
+```
+또한 추가로 인수가 없는 함수이면 괄호를 생략하면 안된다는 특징이 있다<br>
+그리고 return전 여러줄의 코드가 있을 경우 일반 괄호를 사용할 수 없다
+<br>
+<br>
+```javascript
+//화살표 함수의 예시
+const sayHello = function (name) {
+    const msg = `Hello, ${name}`;
+    console.log(msg);
+}
+//위의 함수 선언문을 바꾸면
+const sayHello = (name) => {
+    const msg = `Hello, ${name}`;
+    console.log(msg);
+//또 다른 예시
+const add = function (num1, num2) {
+    const result = num1 + num2;
+    return result;
+};
+//화살표 함수로 변형 시
+const add = (num1, num2) => (
+    num1 + num2;
+);
+```
+
+* ###  #12 - 객체(Object) <br>
+```javascript
+//만약 Superman이 있는데 name은 clark이고, 나이는 33이라고 하자 이걸 객체로 표현하면
+
+const superman = {
+    name: 'clark', //name은 키(key),'clark'는 값(value)
+    age: 33,
+}
+// 각 프로퍼티는 ,로 구분함 마지막의 ,는 없어도 되지만 있는게 수정, 삭제, 이동에 용이
+```
+
+* 각 object에 접근, 추가, 삭제<br>
+
+    * 접근은 `.`과 `[]`을 통해서 가능함<br>
+    ex) superman.name<br>
+    superman['age']<br>
+    * 추가도 `.`과 `[]`을 통해서 가능함<br>
+    ex) superman.gender = 'male';<br>
+    superman['hairColor'] = 'black';<br>
+    * 삭제는 delete 키워드를 사용한다<br>
+    ex) delete superman.hairColor;
+
+
+
+
+
 ### Javascript For Intermediate
 
 # React JS
