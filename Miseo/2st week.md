@@ -93,4 +93,83 @@ inputClick.onclick = function(){
 
 <br>
 
-* ###  #20 - addEventListener 그리고 이벤트 객체
+* ###  #20 - addEventListener 그리고 이벤트 객체<br>
+
+`addEventListener` <br>
+onclick, onkeydown과 같은 이벤트 속성을 통해 이벤트 핸들러를 등록하는 것 보다 현대적인 방법은, addEventListener 메소드를 활용하는 것이다.<br>
+
+> //이전 영상에서 학습한 방식<br>
+target.onclick = function(){}<br><br>
+// addEventListener의 방식
+target.addEventListener('click', function(){})<br>
+
+addEventListener 함수를 사용하는 것의 이점<br>
+* 이전에 추가한 이벤트 핸들러를 제거할 수 있는 대응 메소드가 존재한다. //removeEventListener 메소드
+* 같은 리스너(타겟)에 대해 다수의 핸들러를 등록할 수 있다.
+* 추가적인 옵션 사항들이 제공된다.<br>
+
+이벤트 객체 (event)<br>
+이벤트 객체는 추가적인 기능과 정보를 제공하기 위해 이벤트 핸들러에 자동으로 전달되는 데이터이다.<br>
+이를 활용하기 위해서는 이벤트 핸들러 함수에 매개변수를 추가하여 이벤트 발생 시 마다 전달받을 수 있도록 해야 한다.<br>
+> //click 이벤트가 발생하면 함수를 호출하겠다!<br>
+target.addEventListener('click', function(){})<br><br>
+//+ 이때 자동으로 전달되는 이벤트 객체를 매개변수 event에 대입하겠다!<br>
+target.addEventListener('click', function(event){})<br>
+
+예시 코드<br>
+
+먼저 html 코드에서 
+```html
+<body>
+ <button id = "one">버튼1</button>
+ <button id = "two">버튼2</button>
+ <button id = "three">버튼3</button>
+</body>
+```
+body부분에 버튼 세 개를 만들어 놓은 상태
+```javascript
+const btn1 = document.getElementById("one") //getElementById()해당 아이디의 객체를 가져옴
+const btn2 = document.getElementById("two") 
+const btn3 = document.getElementById("three") 
+
+const handleClick = function(){
+    console.log("저를 클릭하셨나요?")
+}
+
+btn2.addEventlistener('click', handleClick) // 여기에서 handleClick은 함수를 메소드의 인자로 전달하여 콜백함수라고도 한다
+btn2.addEventlistener('click', function(){
+    console.log("또 다른 핸들러가 추가 등록되었다!")
+})
+//위 두개의 핸들러가 둘 다 실행된다. 
+//단순히 이벤트 핸들러 속성을 사용하게 되면 여러개의 핸들러가 등록이 되지 않고 마지막에 등록되는 것으로만 덮어 씌워진다
+
+btn2.removeEventListener('click', handleClick) // click 핸들러가 제거되었다!
+```
+
+```javascript
+//이벤트 객체를 받을 때
+const btn1 = document.getElementById("one") 
+const btn2 = document.getElementById("two") 
+const btn3 = document.getElementById("three") 
+
+const handleClick = function(event){
+    console.log(event.target)
+} //보통 event 또는 e라고 매개변수를 작성함 다른것도 괜찮음
+//target은 이벤트가 발생한 타겟
+
+btn1.addEventlistener('click', handleClick) // <button id ="one">
+btn2.addEventlistener('click', handleClick) // <button id ="two">
+btn3.addEventlistener('click', handleClick) // <button id = "three">
+//똑같은 핸들러여도 다른 결과 임을 알 수 있다
+```
+<br>
+내용 정리<br>
+
+* addEventListener 메소드를 활용해 이벤트 핸들러 등록을 할 수 있다.
+* 이는 이벤트 핸들러 속성을 사용하는 것보다 현대적인(좋은)방법이다.
+* 이벤트 객체는 추가적인 기능과 정보를 제공하기 위해 이벤트 핸들러에 자동으로 전달되는 데이터이다.
+* 이벤트 발생 시에 이벤트 핸들러가 호출될 때 이벤트 객체가 전달되는데, 이때 이벤트 핸들러 함수의 매개변수를 통해 이벤트 객체를 받을 수 있다.
+<br><br>
+
+* ###  #21 - createElement 그리고 appendChild <br>
+
