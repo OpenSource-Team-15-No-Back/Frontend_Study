@@ -173,3 +173,76 @@ btn3.addEventlistener('click', handleClick) // <button id = "three">
 
 * ###  #21 - createElement 그리고 appendChild <br>
 
+`document.createElement`<br>
+document의 createElement 메소드는 지정된 이름의 HTML 요소를 만들어 반환해준다
+> document.createElement('div')<br><br>
+document.createElement('p')<br><br>
+document.createElement('a')<br><br>
+HTML요소가 만들어지고 또 반환 되었다고 해서, 해당 요소가 곧장 웹 브라우저 화면에 추가되는 것은 아니다.
+<br>
+
+`appendChild` 메소드<br>
+DOM내 개별 요소('노드'라고도 함)에 자식 요소를 추가할 때 사용하는 메소드<br>
+-> 바로 이 메소드를 사용하여 웹 브라우저 화면에 나타날 수 있게 한
+
+
+기본 사용법<br>
+>target.appendChild(자식으로_추가할_요소)
+
+예제
+>const p = document.createElement("p")
+document.body.appendChild(p)
+<br>
+<br>
+
+`appendChild` vs `append`<br>
+appendChild 메소드와 비슷한 역할을 하는 append 메소드도 있다. <br>
+타겟 요소에 자식 요소를 추가한다는 점에서 같으나, 차이점이 존재한다<br><br>
+
+주요한 차이<br>
+* appendChild의 경우 추가한 자식 노드를 반환하지만, append는 반환 데이터가 없다.
+* append를 이용하면 요소에 노드 객체 또는 문자열을 자식 요소로 추가할 수 있지만, appendChild는 노드 객체만을 추가할 수 있다.<br>
+
+<br>
+실 코드<br>
+
+먼저 html 코드에서 
+```html
+<body>
+  <button id = "push">눌러</button>
+  <div id = "area"></div>
+</body>
+```
+body부분에 버튼 하나와 div 하나를 만들어 놓은 상태
+```javascript
+const button = document.getElementById("push")
+const div = document.getElementById("area")
+
+button.addEventListener('click', function(){
+    console.log("div 생성 중!")
+    const newDiv = document.createElement("div") //추가만 되고 DOM에 넣어줘야 함
+
+    newDiv.style.backgroundColor = "red" // style속성 조작
+    newDiv.style.width = "200px" // style속성 조작
+    newDiv.style.height = "200px" // style속성 조작
+
+    div.appendChild(newDiv) //실제 DOM에 추가가 됨
+    div.append(newDiv) //위의 appendChild코드와 같은 수행을 함
+    console.log(div.appendChild(newDiv))// 콘솔 출력과 동시에 DOM요소가 추가도 됨 (반환값이 있다는 점)
+    console.log(div.append(newDiv))// 콘솔에는 undefined가 출력되고 DOM요소는 제대로 출력 (반환값이 없다는 점)
+})
+```
+createElement 메소드를 통해서 요소를 생성하고, 생성한 요소의 style 속성을 javascript로 조작한 다음, 조작을 마친 요소를 DOM객체(노드)에 append하는 작업
+<br>
+
+div.append("하하") => 수행됨<br>
+div.appendChild("하하") => 수행X, error // appendChild는 DOM요소(노드)만 가능, 문자열 불가<br>
+<br>
+내용 정리<br>
+
+* document의 createElement메소드는 지정된 이름의 HTML 요소를 만들어 반환해준다.
+* appendChild 메소드는 노드에 자식 요소를 추가할 때 사용하는 메소드이다.
+* append 메소드 또한 자식 요소를 추가할 때 사용할 수 있는 메소드인데, appendChild와 기능적으로 다른 면이 있다.
+<br><br>
+
+* ###  #22 - value 속성 그리고 preventDefault <br>
