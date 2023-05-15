@@ -119,7 +119,7 @@ target.addEventListener('click', function(event){})<br>
 예시 코드<br>
 
 먼저 html 코드에서 
-```html
+```HTML
 <body>
  <button id = "one">버튼1</button>
  <button id = "two">버튼2</button>
@@ -204,7 +204,7 @@ appendChild 메소드와 비슷한 역할을 하는 append 메소드도 있다. 
 * append를 이용하면 요소에 노드 객체 또는 문자열을 자식 요소로 추가할 수 있지만, appendChild는 노드 객체만을 추가할 수 있다.<br>
 
 <br>
-실 코드<br>
+실제 코드<br>
 
 먼저 html 코드에서 
 ```html
@@ -246,3 +246,108 @@ div.appendChild("하하") => 수행X, error // appendChild는 DOM요소(노드)�
 <br><br>
 
 * ###  #22 - value 속성 그리고 preventDefault <br>
+
+입력 요소 값 읽기<br>
+\<input>,\<select>처럼 사용자로부터 입력을 받는데 사용 되는 요소들이 있다.<br>
+여기에서 사용자가 입력한 값을 읽어들일 때는 요소의 `value` 속성에 접근하자
+
+차이점
+* 요소의 텍스트에 접근하고 싶다: `textContent` 또는 `innerText`
+* 사용자가 요소에 입력한 값에 접근하고 싶다: `value`
+<br>
+
+value에 접근하여 할 수 있는 일은 크게 `읽기`와 `쓰기`이다.<br>
+>// 대상 요소의 사용자 입력값을 읽어 콘솔에 출력하자!<br>
+console.log(target.value)<br>
+<br>
+//대상 요소의 사용자 입력값을 "변경값"으로 바꾸자!<br>
+target.value = "변경값"<br>
+
+여러 입력 값을 읽으려면 `form`요소를 사용한다<br>
+
+```HTML
+<form>
+    <input name= "nickname" placeholder = "닉네임" />
+    <input name = "character" placeholder = "특징" />
+    <input type = "submit" value = "입력 완료" />
+</form>
+```
+`submit`이벤트를 사용하여 form의 내용을 제출하면 입력요소의 값들이 한 번에 제출 되는데 그 때 이벤트 핸들러를 사용해 입력값에 접근하면된다<br>
+-> 문제 발생<br><br>
+
+form에는 `action`이라는 속성이 있다 <br>
+`action` - form에 입력된 입력값들을 전송받아 이를 처리해줄 서버프로그램의 url을 지정하는 속성
+
+form이 웹문서에 기입된 입력값들을 제출하면 웹문서는 action에 씌여진 url로 리다이렉션(이동)하게 됨<br>
+<br>
+**그러므로 만일 action속성이 지정되지 않은 상태에서 form을 제출하면 페이지가 `새로고침`됨<br>
+-> action을 지정하지 않고 form의 입력값을 읽어들이고 싶을 때는 다른 추가적 조치 필요<br>
+=> 이벤트 객체를 사용하자
+<br>
+
+실제코드
+
+```HTML
+<body>
+    <input type = "text" placeholder = "아무거나" id = "text" />
+    <input type = "button" value = "PUSH" id = "button" />
+</body>
+```
+body부분에 input하나와 button하나를 만듬
+```javascript
+// 버튼을 누르면 input에 쓰여진 내용을 value속성으로 읽어들이는 작업 (이벤트핸들링)
+
+const textInput = document.getElementById("text")
+const button = document.getElementById("button")
+
+button.addEventListener("click", function(){
+    console.log(textInput.value) // 여기서 value는 사용자 입력값
+})
+
+button.addEventListener("click",function(){
+    textInput.value = "클릭하면 이렇게 바뀝니다" // button을 누르면 value값이 이 문자열로 변환
+})
+```
+
+실제코드 2
+```HTML
+<body>
+   <form>
+    <input type = "text" placeholder ="이름" name = "name" />
+    <input type = "text" placeholder = "동네" name = "town" />
+    <input type = "submit" value = "PUSH" />
+   </form>
+</body>
+```
+body부분에 form을 만들고 input 3개를 만들어 두 개는 각각 이름, 동네를 입력하는, 그리고 하나는 submit타입의 button을 누르면 form을 제출할 수 있도록 함
+```javascript
+const form = document.querySelector("form") //쿼리 셀렉터로 form부분을 선택
+
+form.addEventListener("submit", function(){
+    console.log(form.name.value)
+    console.log(form.town.value)
+})
+// 위 코드에서 이름과 동네 두개를 입력하고 submit하게 되면 콘솔에는 하나만 출력되고 페이지가 새로 고침되는 것을 알 수 있다
+// 뭔가 잘못됐다! (action이 없어서)
+
+//이에 대한 조치 -> 이벤트 객체를 받아 preventDefault메소드를 사용하자
+// preventDefault - 기존의 기능을 차단(리다이렉션되는 것을 차단)
+
+form.addEventListener("submit", function(e){
+    e.preventDefault()
+    console.log(form.name.value)
+    console.log(form.town.value)
+})
+// 다시 두 개의 값을 입력하게 되면 두 개의 값 모두 잘 출력되는 것을 알 수 있음
+```
+만약 form에서 action이 잘 되어 있다면 저렇게 할 필요가 없음<br>
+
+> \<form action = "url"> <br>
+
+<br>
+내용 정리<br>
+
+* 사용자가 입력한 값을 읽어들일 때는 요소의 value 속성에 접근하면 된다.
+* value에 접근함으로써 입력 값 읽기 또는 쓰기를 수행할 수 있다.
+* form에 포함된 입력 요소의 name을 통해 각 입력 요소에 접근할 수 있다.
+* form에서 이벤트가 제출되는 submit 이벤트가 발생하면 action 속성의 url로 리다이렉트되지만, 이벤트 객체를 통해 기본 기능을 차단할 수 있다.
